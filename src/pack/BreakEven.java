@@ -39,14 +39,14 @@ public class BreakEven {
 		System.out.println("Max Percenatge");
 		max_per=sc.nextInt();
 		
-		float hsn_rate_value=(hsn_rate+1);
+		/*float hsn_rate_value=(hsn_rate);
 		System.out.println(hsn_rate_value);
-		
+		*/
 		System.out.println("Vendor Price");
 		vendor_price=sc.nextDouble();
 		
 		
-	  	double break_even=((incoming_price+fixed_techno+weight_handling_charge+pick_pack_value)*hsn_rate_value)/(1-(((commission_rate+2)/100)*hsn_rate_value));
+	  	double break_even=((incoming_price+fixed_techno+weight_handling_charge+pick_pack_value)*hsn_rate)/(1-(((commission_rate+2)/100)*hsn_rate));
 	  	
 	  	System.out.println("Break Even Selling Price" +break_even);
 	  	
@@ -65,10 +65,36 @@ public class BreakEven {
 	  	   System.out.println("Maximun Selling Price" +max_rate);
 	  	
 	  	
-	  	   double purchase_order=((vendor_price/hsn_rate_value)*(1-(((commission_rate+2)/100)*hsn_rate_value)))-(weight_handling_charge+fixed_techno+pick_pack_value);
+	  	   double purchase_order=((vendor_price/hsn_rate)*(1-(((commission_rate+2)/100)*hsn_rate)))-(weight_handling_charge+fixed_techno+pick_pack_value);
 	  	
 	  	   System.out.println(purchase_order);
 	  	
+	}
+	
+	public void paytm()
+	{
+      double break_even1=((incoming_price+weight_handling_charge+pick_pack_value)*hsn_rate)/(1-(((commission_rate+2)/100)*hsn_rate));
+	  	
+	  	System.out.println("Break Even Selling Price" +break_even1);
+	  	
+	  	if(min_per<0)
+	  	{
+	  		min_rate=(break_even1+((break_even1*min_per)/100));
+		  	System.out.println("Minimun Selling Price" +min_rate);
+	  	}
+	  	else
+	  	{
+	  	   min_rate=(((break_even1*min_per)/100)+break_even1);
+	  	  System.out.println("Minimun Selling Price" +min_rate);
+	  	}
+	  	
+	  	   max_rate=(((break_even1*max_per)/100)+break_even1);
+	  	   System.out.println("Maximun Selling Price" +max_rate);
+	  	
+	  	
+	  	   double purchase_order=((vendor_price/hsn_rate)*(1-(((commission_rate+2)/100)*hsn_rate)))-(weight_handling_charge+pick_pack_value);
+	  	
+	  	   System.out.println(purchase_order);
 	}
 	
 }

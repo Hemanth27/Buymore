@@ -58,4 +58,9 @@ public class Order_Calculation {
 			
 		
 	}
+	
+	public void paytm()
+	{
+		
+	}
 }
